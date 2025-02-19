@@ -95,11 +95,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 // overwrite for macos
 // -> @ RALT + Q 
 // curly braces, pipe, eckige klammern, backslash
-const key_override_t atMail_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_Q, A(KC_L), 1<<MACOS); // @ to alt+q
-const key_override_t curlyBraces_open_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_7, A(KC_8), 1<<MACOS); // { to alt+7
-const key_override_t curlyBraces_close_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_0, A(KC_9), 1<<MACOS); // } to alt+0
-const key_override_t bracket_open_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_8, A(KC_5), 1<<MACOS); // [ to alt+8
-const key_override_t bracket_close_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_9, A(KC_6), 1<<MACOS); // ] to alt+9
+const key_override_t atMail_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_Q, LOPT(KC_L), 1<<MACOS); // @ to alt+q
+const key_override_t curlyBraces_open_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_7, LOPT(KC_8), 1<<MACOS); // { to alt+7
+const key_override_t curlyBraces_close_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_0, LOPT(KC_9), 1<<MACOS); // } to alt+0
+const key_override_t bracket_open_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_8, LOPT(KC_5), 1<<MACOS); // [ to alt+8
+const key_override_t bracket_close_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_9, LOPT(KC_6), 1<<MACOS); // ] to alt+9
+const key_override_t backslash_key_override = ko_make_with_layers(MOD_MASK_ALT, DE_SS, SAGR(KC_7), 1<<MACOS); // \ to alt+ß
+const key_override_t lockscreen_key_override = ko_make_with_layers(MOD_MASK_CTRL, DE_L, LCMD(LCTL(DE_Q)), 1<<MACOS); // lockscreen to win+l
+const key_override_t pipe_key_override = ko_make_with_layers(MOD_MASK_ALT, DE_LABK, LOPT(KC_7), 1<<MACOS); // piple to alt+<
+const key_override_t alt_tab_key_override = ko_make_with_layers(MOD_MASK_ALT, KC_TAB, LCMD(KC_TAB), 1<<MACOS); // piple to alt+<
 
 // This globally defines all key overrides to be used
 const key_override_t *key_overrides[] = {
@@ -107,7 +111,11 @@ const key_override_t *key_overrides[] = {
     &curlyBraces_open_key_override,
     &curlyBraces_close_key_override,
     &bracket_open_key_override,
-    &bracket_close_key_override
+    &bracket_close_key_override,
+    &backslash_key_override,
+    &lockscreen_key_override,
+    &pipe_key_override,
+    &alt_tab_key_override
 };
 
 uint32_t get_host_os(uint32_t trigger_time, void* cb_arg) {
